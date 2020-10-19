@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+	
+	<title>2019 - build</title>
+	
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="2019 - build">
+	<meta property="og:url" content="https://patrickgodbey.com/2019/">
+	<meta property="og:site_name" content="build">
+	<meta name="twitter:card" content="summary_large_image">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://patrickgodbey.com/#website","url":"https://patrickgodbey.com/","name":"build","description":"Just another WordPress site","potentialAction":[{"@type":"SearchAction","target":"https://patrickgodbey.com/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https://patrickgodbey.com/2019/#webpage","url":"https://patrickgodbey.com/2019/","name":"2019 - build","isPartOf":{"@id":"https://patrickgodbey.com/#website"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://patrickgodbey.com/2019/"]}]}]}</script>
+	
+
+
+<link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+<link rel="dns-prefetch" href="//code.jquery.com">
+<link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+<link rel="dns-prefetch" href="//stackpath.bootstrapcdn.com">
+
+<link rel="stylesheet" id="wp-block-library-css" href="https://patrickgodbey.com/wp-includes/css/dist/block-library/style.min.css?ver=5.5.1" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-library-theme-css" href="https://patrickgodbey.com/wp-includes/css/dist/block-library/theme.min.css?ver=5.5.1" type="text/css" media="all">
+<link rel="stylesheet" id="bootstrap4-css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css?ver=4.5.1" type="text/css" media="all">
+<link rel="stylesheet" id="fontawesome5-css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css?ver=5.14.0" type="text/css" media="all">
+<link rel="stylesheet" id="gutenberg-blocks-css" href="https://patrickgodbey.com/wp-content/themes/patrickgodbey/theme/css/blocks.css?ver=5.5.1" type="text/css" media="all">
+<link rel="stylesheet" id="theme-css" href="https://patrickgodbey.com/wp-content/themes/patrickgodbey/theme/css/b4st.css" type="text/css" media="all">
+<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style></head>
+
+<body class="archive date">
+
+<nav id="site-navbar" class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="container">
+
+        <a class="navbar-brand" href="https://patrickgodbey.com/">build</a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDropdown" aria-controls="navbarDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarDropdown">
+      
+          <form class="form-inline ml-auto pt-2 pt-md-0" role="search" method="get" id="searchform" action="https://patrickgodbey.com/">
+      <div class="input-group">
+        <input class="form-control border-secondary" type="text" value="" placeholder="Search..." name="s" id="s">
+        <div class="input-group-append">
+          <button type="submit" id="searchsubmit" value="" class="btn btn-outline-secondary">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+        
+    </div>
+
+  </div>
+</nav>
+
+<main id="site-main" class="mt-5">
+
+  <header class="mb-5 text-center">
+    <span class="text-muted">Archive</span>
+    <h1>
+      Year: <span>2019</span>    </h1>
+  </header>
+
+  
+
+  
+
+<article role="article" id="post_15" class="entry-content pb-3 border-bottom mb-5 post-15 post type-post status-publish format-standard hentry category-tutorial tag-htpasswd">
+  <header>
+    <h2>
+      <a href="https://patrickgodbey.com/2019/09/25/adding-basic-auth-to-site-on-laravel-forge/">
+        Adding Basic Auth to site on Laravel Forge      </a>
+    </h2>
+    <p class="text-muted">
+      <i class="far fa-calendar-alt"></i>&nbsp;<time class="entry-date published" datetime="2019-09-25T13:45:36+00:00">September 25, 2019</time>&nbsp;|
+      <i class="far fa-user"></i>&nbsp; By <a href="https://patrickgodbey.com/author/patrickg/" title="Posts by patrickg" rel="author">patrickg</a>&nbsp;|
+      <i class="far fa-comment"></i>&nbsp;<a href="https://patrickgodbey.com/2019/09/25/adding-basic-auth-to-site-on-laravel-forge/#respond">0 Comments</a>
+    </p>
+  </header>
+  <section>
+    
+    <p>Here I am going to outline how I added basic auth to my build environment for this site. I switched servers to run on Laravel Forge, and the only instructions I could find for how to do this were several years (and versions of Forge) old. I know the server is running nginx, and I know how to do this manually, but I don&rsquo;t want to go around any infrastructure Forge has setup and ham-fist it.</p>
+<h2>Generate htpasswd</h2>
+<p>First thing you need to do is generate your htpasswd file. Search for an htpasswd generator and enter in a username and password. The result will be a single line string separated by a colon. Copy that entire string and keep it handy.</p>
+<h2>Create htpasswd file</h2>
+<p>Next, SSH into your server, and create the file <code>.htpasswd</code><br> I created mine in <code>/etc/nginx/</code></p>
+<p><code>cd /etc/nginx<br>
+sudo nano .htpasswd</code></p>
+<p>(if doing multiple sites, you can name this whatever you want, just remember to reference it when adding it to the config below)</p>
+<p>paste in your generated authorization line here</p>
+<p>ctrl+x and then y to save the file.</p>
+<h2>Edit nginx config</h2>
+<p>Next go to your Forge dashboard, and go to your specific site. At the bottom of the screen there is a grey button/pill/badge labled files.<br> Click that, and then edit nginx configuration.</p>
+<figure class="aligncenter size-medium wp-image-115"><img loading="lazy" src="file:///C:/Users/patri/Documents/Publii/sites/patrickgodbeycom/preview/media/posts/13/scrnli_9_25_2019_11-18-16-AM-470x240.png" sizes="(max-width: 768px) 100vw, 768px" srcset="file:///C:/Users/patri/Documents/Publii/sites/patrickgodbeycom/preview/media/posts/13/responsive/scrnli_9_25_2019_11-18-16-AM-470x240-xs.png 300w,file:///C:/Users/patri/Documents/Publii/sites/patrickgodbeycom/preview/media/posts/13/responsive/scrnli_9_25_2019_11-18-16-AM-470x240-sm.png 480w,file:///C:/Users/patri/Documents/Publii/sites/patrickgodbeycom/preview/media/posts/13/responsive/scrnli_9_25_2019_11-18-16-AM-470x240-md.png 768w" alt="" width="470" height="240"></figure>
+<p>After that, you need to add two lines to your configuration file. Be careful not to disturb anything you are unsure of. Find the top of your <code>server{}</code> block and you need to add two lines. The first, the directive to restrict content and display the message of the alert box. The second line, is the path to your .htpasswd file.</p>
+<figure class="aligncenter size-medium wp-image-116"><img loading="lazy" src="file:///C:/Users/patri/Documents/Publii/sites/patrickgodbeycom/preview/media/posts/13/scrnli_9_25_2019_11-18-16-AM-1-470x240.png" sizes="(max-width: 768px) 100vw, 768px" srcset="file:///C:/Users/patri/Documents/Publii/sites/patrickgodbeycom/preview/media/posts/13/responsive/scrnli_9_25_2019_11-18-16-AM-1-470x240-xs.png 300w,file:///C:/Users/patri/Documents/Publii/sites/patrickgodbeycom/preview/media/posts/13/responsive/scrnli_9_25_2019_11-18-16-AM-1-470x240-sm.png 480w,file:///C:/Users/patri/Documents/Publii/sites/patrickgodbeycom/preview/media/posts/13/responsive/scrnli_9_25_2019_11-18-16-AM-1-470x240-md.png 768w" alt="" width="470" height="240"></figure>
+<p><code>    auth_basic "Restricted Content";<br>
+auth_basic_user_file /etc/nginx/.htpasswd;</code></p>
+<p>If you want to do this with multiple sites, you should name your files something more recognizable, such as sitename.htpasswd and then reference those specifically in your settings.</p>
+  </section>
+</article>
+
+  
+  
+
+<article role="article" id="post_16" class="entry-content pb-3 border-bottom mb-5 post-16 post type-post status-publish format-standard hentry category-blog tag-3d-modeling tag-3d-printing">
+  <header>
+    <h2>
+      <a href="https://patrickgodbey.com/2019/06/23/3d-printing-a-replacement-ball-joint-for-phone-holder-vent-mount/">
+        3D Printing a replacement ball joint for phone holder vent mount      </a>
+    </h2>
+    <p class="text-muted">
+      <i class="far fa-calendar-alt"></i>&nbsp;<time class="entry-date published" datetime="2019-06-23T13:45:36+00:00">June 23, 2019</time>&nbsp;|
+      <i class="far fa-user"></i>&nbsp; By <a href="https://patrickgodbey.com/author/patrickg/" title="Posts by patrickg" rel="author">patrickg</a>&nbsp;|
+      <i class="far fa-comment"></i>&nbsp;<a href="https://patrickgodbey.com/2019/06/23/3d-printing-a-replacement-ball-joint-for-phone-holder-vent-mount/#respond">0 Comments</a>
+    </p>
+  </header>
+  <section>
+    
+    <p>This thing has been driving me insane for the past several months. Don&rsquo;t know where/when I got this phone holder, but the thickness/spring weight of the holder just feels right when I place the phone in it, and it holds the phone firm.</p>
+<figure class="wp-image-104 size-medium"><img loading="lazy" src="file:///C:/Users/patri/Documents/Publii/sites/patrickgodbeycom/preview/media/posts/12/IMG_20190623_174045-400x300.jpg" sizes="(max-width: 768px) 100vw, 768px" srcset="file:///C:/Users/patri/Documents/Publii/sites/patrickgodbeycom/preview/media/posts/12/responsive/IMG_20190623_174045-400x300-xs.jpg 300w,file:///C:/Users/patri/Documents/Publii/sites/patrickgodbeycom/preview/media/posts/12/responsive/IMG_20190623_174045-400x300-sm.jpg 480w,file:///C:/Users/patri/Documents/Publii/sites/patrickgodbeycom/preview/media/posts/12/responsive/IMG_20190623_174045-400x300-md.jpg 768w" alt="" width="400" height="300"></figure>
+<p> super shitty thin stamped grippy tongs that hold the vent</p>
+<p>&nbsp;</p>
+<p>The problem, is the super shitty thin stamped grippy tongs that hold the vent. Over time, they have become loose and lost a lot of their grip. Recently, I purchased a &ldquo;new to me&rdquo; Volvo which has been an absolute thrill to tinker on/with. Turns out Volvos don&rsquo;t come with an armada of cup-holders, leaving me in a situation of having to decide where to put my phone when it&rsquo;s time for coffee.</p>
+<p>The difference invent-slat thicknesses of new car vs old, has just brought this problem to a head. So I set out to 3D print my way into a better situation. I started by taking apart the old mount, and isolating the problem component. The ball end of a ball joint, and the stamped tongs. I measured the ball and neck using calipers and re-created it in Tinkercad.</p>
+<figure class="alignnone size-medium wp-image-95"><img loading="lazy" src="file:///C:/Users/patri/Documents/Publii/sites/patrickgodbeycom/preview/media/posts/12/balljoint_attempt1-470x259.jpg" sizes="(max-width: 768px) 100vw, 768px" srcset="file:///C:/Users/patri/Documents/Publii/sites/patrickgodbeycom/preview/media/posts/12/responsive/balljoint_attempt1-470x259-xs.jpg 300w,file:///C:/Users/patri/Documents/Publii/sites/patrickgodbeycom/preview/media/posts/12/responsive/balljoint_attempt1-470x259-sm.jpg 480w,file:///C:/Users/patri/Documents/Publii/sites/patrickgodbeycom/preview/media/posts/12/responsive/balljoint_attempt1-470x259-md.jpg 768w" alt="" width="470" height="259"></figure>
+<p>I made the print with supports and it came out wonderfully. Big thanks to my Ender 3 Pro, which I have been nothing but impressed with thus far. So I printed this thing out, the ball fit, the collar fit and screwed, and everything was going swimmingly until&hellip;.snap.</p>
+<p>Turns out that printing this vertically setup critical weak points in the neck of the ball joint.</p>
+<figure class="wp-image-105 size-medium"><img loading="lazy" src="file:///C:/Users/patri/Documents/Publii/sites/patrickgodbeycom/preview/media/posts/12/IMG_20190623_174128-400x300.jpg" sizes="(max-width: 768px) 100vw, 768px" srcset="file:///C:/Users/patri/Documents/Publii/sites/patrickgodbeycom/preview/media/posts/12/responsive/IMG_20190623_174128-400x300-xs.jpg 300w,file:///C:/Users/patri/Documents/Publii/sites/patrickgodbeycom/preview/media/posts/12/responsive/IMG_20190623_174128-400x300-sm.jpg 480w,file:///C:/Users/patri/Documents/Publii/sites/patrickgodbeycom/preview/media/posts/12/responsive/IMG_20190623_174128-400x300-md.jpg 768w" alt="" width="400" height="300"></figure>
+<p> Critical weak point</p>
+<p>Giving it some thought, I decided to not only get rid of the neck, which wasn&rsquo;t really needed anyway, and also change the orientation of the print to horizontal, since the stresses would be working against the grain of the print.</p>
+<figure class="alignnone size-medium wp-image-99"><img loading="lazy" src="file:///C:/Users/patri/Documents/Publii/sites/patrickgodbeycom/preview/media/posts/12/balljoint_attempt2-470x277.jpg" sizes="(max-width: 768px) 100vw, 768px" srcset="file:///C:/Users/patri/Documents/Publii/sites/patrickgodbeycom/preview/media/posts/12/responsive/balljoint_attempt2-470x277-xs.jpg 300w,file:///C:/Users/patri/Documents/Publii/sites/patrickgodbeycom/preview/media/posts/12/responsive/balljoint_attempt2-470x277-sm.jpg 480w,file:///C:/Users/patri/Documents/Publii/sites/patrickgodbeycom/preview/media/posts/12/responsive/balljoint_attempt2-470x277-md.jpg 768w" alt="" width="470" height="277"></figure>
+<p>The result has been amazing so far. I got lucky with the vent slats doing a tight fit on the first try, but more over, the ball joint and neck are very strong, and tight.</p>
+<figure class="alignnone size-medium wp-image-102"><img loading="lazy" style="font-size: 1rem;" src="file:///C:/Users/patri/Documents/Publii/sites/patrickgodbeycom/preview/media/posts/12/IMG_20190622_114017-400x300.jpg" sizes="(max-width: 768px) 100vw, 768px" srcset="file:///C:/Users/patri/Documents/Publii/sites/patrickgodbeycom/preview/media/posts/12/responsive/IMG_20190622_114017-400x300-xs.jpg 300w,file:///C:/Users/patri/Documents/Publii/sites/patrickgodbeycom/preview/media/posts/12/responsive/IMG_20190622_114017-400x300-sm.jpg 480w,file:///C:/Users/patri/Documents/Publii/sites/patrickgodbeycom/preview/media/posts/12/responsive/IMG_20190622_114017-400x300-md.jpg 768w" alt="" width="400" height="300"></figure>
+<figure class="alignnone size-medium wp-image-101"><img loading="lazy" src="file:///C:/Users/patri/Documents/Publii/sites/patrickgodbeycom/preview/media/posts/12/IMG_20190622_113948-400x300.jpg" sizes="(max-width: 768px) 100vw, 768px" srcset="file:///C:/Users/patri/Documents/Publii/sites/patrickgodbeycom/preview/media/posts/12/responsive/IMG_20190622_113948-400x300-xs.jpg 300w,file:///C:/Users/patri/Documents/Publii/sites/patrickgodbeycom/preview/media/posts/12/responsive/IMG_20190622_113948-400x300-sm.jpg 480w,file:///C:/Users/patri/Documents/Publii/sites/patrickgodbeycom/preview/media/posts/12/responsive/IMG_20190622_113948-400x300-md.jpg 768w" alt="" width="400" height="300"></figure>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><a class="btn btn-primary" href="https://www.thingiverse.com/thing:3710156"> View on Thingiverse</a></p>
+  </section>
+</article>
+
+  
+  
+
+<article role="article" id="post_17" class="entry-content pb-3 border-bottom mb-5 post-17 post type-post status-publish format-standard hentry category-blog tag-github tag-github-pages">
+  <header>
+    <h2>
+      <a href="https://patrickgodbey.com/2019/03/02/circleci-is-cool-and-all-but-lets-just-roll-w-gh-pages/">
+        CircleCI is cool and all, but let&rsquo;s just roll w/ GH pages      </a>
+    </h2>
+    <p class="text-muted">
+      <i class="far fa-calendar-alt"></i>&nbsp;<time class="entry-date published" datetime="2019-03-02T13:45:36+00:00">March 2, 2019</time>&nbsp;|
+      <i class="far fa-user"></i>&nbsp; By <a href="https://patrickgodbey.com/author/patrickg/" title="Posts by patrickg" rel="author">patrickg</a>&nbsp;|
+      <i class="far fa-comment"></i>&nbsp;<a href="https://patrickgodbey.com/2019/03/02/circleci-is-cool-and-all-but-lets-just-roll-w-gh-pages/#respond">0 Comments</a>
+    </p>
+  </header>
+  <section>
+    
+    <p>I cant spend a TON of time playing with new stuff, not as much as I would like. I got to try out circle CI to the point of getting to work and getting to understand HOW it works, which is the most important take away really.</p>
+<p>The upsides are that I am not familiar with another weapon in the development arsenal. I believe, however, that it is overkill for my meager purposes of simple deployment. I have decided to just stick with pushing directly to GH pages and serving the content from there.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+  </section>
+</article>
+
+  
+  <nav class="container border-top pt-2 pb-5">
+    <div class="text-left"></div>
+    <div class="text-right"></div>
+  </nav>
+
+  
+  
+</main>
+
+  <section id="site-main-widgets" class="bg-light">
+    <div class="container">
+      <div class="row pt-5 pb-4" id="main-widget-area" role="navigation">
+        <div class="search-2 widget_search col-sm"><form class="form-inline mb-3" role="search" method="get" id="searchform" action="https://patrickgodbey.com/">
+      <input class="form-control mr-sm-1" type="text" value="" placeholder="Search..." name="s" id="s">
+      <button type="submit" id="searchsubmit" value="Search" class="btn btn-primary"><i class="fas fa-search"></i></button>
+    </form></div>
+		<div class="recent-posts-2 widget_recent_entries col-sm">
+		<h2 class="h4">Recent Posts</h2>
+		<ul>
+											<li>
+					<a href="https://patrickgodbey.com/2020/06/18/thoughts-about-leaving-townnews-com/">Thoughts about leaving TownNews.com</a>
+									</li>
+											<li>
+					<a href="https://patrickgodbey.com/2020/06/08/things-in-my-mental-rotation-a-list/">Things in my mental rotation: A list.</a>
+									</li>
+											<li>
+					<a href="https://patrickgodbey.com/2020/05/31/my-experience-with-publii/">My experience with Publii</a>
+									</li>
+											<li>
+					<a href="https://patrickgodbey.com/2020/03/10/wordpress-graphql-and-gatsby/">WordPress, GraphQL, and Gatsby.</a>
+									</li>
+											<li>
+					<a href="https://patrickgodbey.com/2020/01/28/5-steps-to-ace-a-programming-interview/">5 steps to ace a programming interview.</a>
+									</li>
+					</ul>
+
+		</div><div class="recent-comments-2 widget_recent_comments col-sm"><h2 class="h4">Recent Comments</h2><ul id="recentcomments"></ul></div>      </div>
+    </div>
+  </section>
+  
+<footer id="site-footer">
+
+  <div class="container">
+
+        <div class="row pt-5 pb-4" id="footer" role="navigation">
+      <div class="archives-2 widget_archive col-sm"><h2 class="h4">Archives</h2>
+			<ul>
+					<li><a href="https://patrickgodbey.com/2020/06/">June 2020</a></li>
+	<li><a href="https://patrickgodbey.com/2020/05/">May 2020</a></li>
+	<li><a href="https://patrickgodbey.com/2020/03/">March 2020</a></li>
+	<li><a href="https://patrickgodbey.com/2020/01/">January 2020</a></li>
+	<li><a href="https://patrickgodbey.com/2019/09/">September 2019</a></li>
+	<li><a href="https://patrickgodbey.com/2019/06/">June 2019</a></li>
+	<li><a href="https://patrickgodbey.com/2019/03/">March 2019</a></li>
+			</ul>
+
+			</div><div class="categories-2 widget_categories col-sm"><h2 class="h4">Categories</h2>
+			<ul>
+					<li class="cat-item cat-item-2"><a href="https://patrickgodbey.com/category/blog/">blog</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="https://patrickgodbey.com/category/rant/">rant</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="https://patrickgodbey.com/category/tutorial/">tutorial</a>
+</li>
+			</ul>
+
+			</div><div class="meta-2 widget_meta col-sm"><h2 class="h4">Meta</h2>
+		<ul>
+						<li><a rel="nofollow" href="https://patrickgodbey.com/wp-login.php">Log in</a></li>
+			<li><a href="https://patrickgodbey.com/feed/">Entries feed</a></li>
+			<li><a href="https://patrickgodbey.com/comments/feed/">Comments feed</a></li>
+
+			<li><a href="https://wordpress.org/">WordPress.org</a></li>
+		</ul>
+
+		</div>    </div>
+    
+  </div>
+
+</footer>
+
+
+    <div class="container">
+      <div class="row pt-3">
+        <div class="col-sm">
+          <p class="text-center text-sm-left">&copy; 2020 <a href="https://patrickgodbey.com/">build</a></p>
+        </div>
+        <div class="col-sm">
+          <p class="text-center text-sm-right"><a href="https://github.com/SimonPadbury/b4st">b4st</a> theme for WordPress</p>
+        </div>
+      </div>
+    </div>
+		
+
+
+<div id="vp" style="position: fixed; bottom: 0.5rem; right: 0.5rem; z-index: 999; display: inline-block; background: #555; color: #ffffff; padding: 0 0.5rem 0.125rem; border-radius: 0.25rem;"></div>
+
+<script>
+  var vp = document.body.querySelector('#vp');
+  var viewportWidth = window.innerWidth + 'px';
+  vp.innerHTML = viewportWidth;
+  window.addEventListener('resize', function () {
+    viewportWidth = window.innerWidth + 'px';
+    vp.innerHTML = viewportWidth;
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js?ver=2.8.3" id="modernizr-js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js?ver=3.5.1" id="jquery-3.5.1-js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js?ver=1.16.1" id="popper-js"></script>
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js?ver=4.5.1" id="bootstrap4-js"></script>
+<script type="text/javascript" src="https://patrickgodbey.com/wp-content/themes/patrickgodbey/theme/js/b4st.js" id="theme-js"></script>
+</body>
+</html>
