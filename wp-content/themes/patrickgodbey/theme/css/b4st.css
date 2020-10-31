@@ -36,12 +36,7 @@ This may but be necessary when Bootstrap 4 is improved after alpha. */
 
 /* Main content */
 
-#content article {
-  margin: 40px 0
-}
-#content header {
-  margin: 20px 0
-}
+
 #content section {
   margin-bottom: 20px
 }
@@ -193,6 +188,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a{
 
 .jumbotron{
   border-radius: 0px!important;
+  max-width:750px;
 }
 .bg-jumbotron{
   background-color:#F5F7F9!important;
@@ -217,7 +213,24 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a{
 .post-container{
   max-width: 750px;
 }
-.post-title a{
+#content a,
+#content a:visited{
   color: #222!important;
   font-size: 1.25rem;
+}
+
+#content a:hover,
+#content a:focus,
+#content a:active{
+  color: #55eaa3!important;
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid #55eaa3;
+}
+.post-title{
+  font-size: 1.5rem;
 }
