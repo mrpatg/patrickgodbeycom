@@ -181,8 +181,8 @@ ol.commentlist li ul {
     }
 }
 body{
-  color:#74818D;
-  background:#ffffff;
+  color:#222;
+  background:#f5f7f9;
 }
 h1, h2, h3, h4, h5, h6,
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a{
@@ -202,4 +202,22 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a{
 }
 .navbar-brand{
   color:#ffffff!important;
+}
+.post-meta a{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1rem;
+    color:#222!important;
+}
+.post-meta{
+  text-transform: uppercase;
+  font-size: 1rem;
+  color:#222!important;
+}
+.post-container{
+  max-width: 750px;
+}
+.post-title a{
+  color: #222!important;
+  font-size: 1.25rem;
 }
